@@ -1,0 +1,17 @@
+{
+  "name": "CODER PETRO OSINT",
+  "short_name": "CODER PETRO",
+  "description": "Professional OSINT lookup service — phone, email, vehicle, UPI, PAN and more.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#010204",
+  "theme_color": "#010204",
+  "icons": [
+    {
+      "src": "/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
