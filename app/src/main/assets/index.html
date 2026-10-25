@@ -340,6 +340,38 @@
       word-break: break-all;
     }
 
+    .result-details {
+      display: none;
+      margin-bottom: 12px;
+      padding: 16px;
+      border: 1px solid rgba(212,175,55,.28);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(212,175,55,.06), rgba(5,5,4,.7));
+      text-align: left;
+    }
+    .result-details.visible { display: block; }
+    .result-details-title {
+      margin: 0 0 12px;
+      color: var(--primary);
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      letter-spacing: .06em;
+    }
+    .result-detail-row {
+      display: grid;
+      grid-template-columns: minmax(100px, 34%) minmax(0, 1fr);
+      gap: 12px;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(212,175,55,.12);
+      font-size: .88rem;
+    }
+    .result-detail-row:last-child { border-bottom: 0; }
+    .result-detail-key { color: var(--text-dim); overflow-wrap: anywhere; }
+    .result-detail-value { color: var(--text); overflow-wrap: anywhere; white-space: pre-wrap; }
+    @media (max-width: 480px) {
+      .result-detail-row { grid-template-columns: 1fr; gap: 4px; }
+    }
+
     /* ==========================================================================
        CATALOG / FILTER SECTION
        ========================================================================== */
@@ -805,6 +837,7 @@
         </button>
       </div>
 
+      <div id="resultDetails" class="result-details" aria-live="polite"></div>
       <div id="terminalOutput" class="terminal-output">Ready. Select any tool below and click "Run Lookup".</div>
     </section>
 
@@ -985,7 +1018,62 @@
     const queryInput = document.getElementById('queryInput');
     const runLookupBtn = document.getElementById('runLookupBtn');
     const terminalOutput = document.getElementById('terminalOutput');
+    const resultDetails = document.getElementById('resultDetails');
     const copyJsonBtn = document.getElementById('copyJsonBtn');
+
+    // Render a human-readable view alongside the full JSON response.
+    // Values are inserted with textContent so backend data is never treated as HTML.
+    function renderReadableDetails(data, statusText = 'Lookup details') {
+      resultDetails.replaceChildren();
+      if (data === undefined || data === null) {
+        resultDetails.classList.remove('visible');
+        return;
+      }
+
+      const title = document.createElement('h3');
+      title.className = 'result-details-title';
+      title.textContent = statusText;
+      resultDetails.appendChild(title);
+
+      const rows = [];
+      function collect(value, prefix = '', depth = 0) {
+        if (rows.length >= 80) return;
+        if (value && typeof value === 'object') {
+          if (Array.isArray(value)) {
+            if (!value.length) rows.push([prefix || 'Result', 'No items']);
+            value.forEach((item, index) => collect(item, prefix ? prefix + ' [' + (index + 1) + ']' : 'Item ' + (index + 1), depth + 1));
+          } else {
+            const entries = Object.entries(value);
+            if (!entries.length) rows.push([prefix || 'Result', 'No details available']);
+            entries.forEach(([key, item]) => collect(item, prefix ? prefix + ' › ' + key : key, depth + 1));
+          }
+        } else {
+          const displayValue = value === null || value === '' ? '—' : String(value);
+          rows.push([prefix || 'Result', displayValue]);
+        }
+      }
+      collect(data);
+
+      rows.forEach(([key, value]) => {
+        const row = document.createElement('div');
+        row.className = 'result-detail-row';
+        const keyEl = document.createElement('div');
+        keyEl.className = 'result-detail-key';
+        keyEl.textContent = key;
+        const valueEl = document.createElement('div');
+        valueEl.className = 'result-detail-value';
+        valueEl.textContent = value;
+        row.append(keyEl, valueEl);
+        resultDetails.appendChild(row);
+      });
+      if (rows.length >= 80) {
+        const note = document.createElement('div');
+        note.className = 'result-detail-value';
+        note.textContent = 'Additional fields are available in the JSON output below.';
+        resultDetails.appendChild(note);
+      }
+      resultDetails.classList.add('visible');
+    }
 
     // -------------------------------------------------------------
     // 3. RENDER CATALOG CARDS
@@ -1067,6 +1155,8 @@
 
       runLookupBtn.disabled = true;
       runLookupBtn.textContent = 'Running...';
+      resultDetails.replaceChildren();
+      resultDetails.classList.remove('visible');
       terminalOutput.textContent = `[*] Sending lookup [${selectedTool.key}] for: "${query}"...\n`;
 
       const startTime = performance.now();
@@ -1102,18 +1192,21 @@
             result: parsedBody
           };
 
+          renderReadableDetails(outputObj.result ?? outputObj, 'Lookup Details · ' + selectedTool.name);
           terminalOutput.textContent = JSON.stringify(outputObj, null, 2);
         } else {
-          terminalOutput.textContent = JSON.stringify({
+          const errorOutput = {
             status: "error",
             tool: selectedTool.key,
             query: query,
             error: data.errorMessage || "Lookup failed or returned no response."
-          }, null, 2);
+          };
+          renderReadableDetails(errorOutput, 'Lookup Error');
+          terminalOutput.textContent = JSON.stringify(errorOutput, null, 2);
         }
       } catch (err) {
         // Fallback for CORS or offline testing
-        terminalOutput.textContent = `[!] Network/CORS Notice: Direct browser query was blocked by CORS or network timeout (${err.message}).\n\nSample simulated payload:\n` + JSON.stringify({
+        const fallbackOutput = {
           status: "simulated_success",
           tool: selectedTool.key,
           query: query,
@@ -1124,7 +1217,9 @@
             status: "active",
             note: "Edit CONVEX_URL in this HTML file to point to your proxy or backend."
           }
-        }, null, 2);
+        };
+        renderReadableDetails(fallbackOutput, 'Sample Output · Network Notice');
+        terminalOutput.textContent = `[!] Network/CORS Notice: Direct browser query was blocked by CORS or network timeout (${err.message}).\n\nSample simulated payload:\n` + JSON.stringify(fallbackOutput, null, 2);
       } finally {
         runLookupBtn.disabled = false;
         runLookupBtn.textContent = 'Run Lookup';
