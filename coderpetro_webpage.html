@@ -634,7 +634,63 @@
       .hero-title { font-size: 2.6rem; }
     }
     @media (prefers-reduced-motion: reduce) { *,*::before,*::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; } }
-</style>
+
+    /* Gold & black theme refresh: visual-only overrides; preserve all tools and lookup behaviour. */
+    :root {
+      --bg: #050505;
+      --card-bg: #101010;
+      --card-hover: #19160d;
+      --surface: #15130d;
+      --border: rgba(212, 175, 55, .22);
+      --border-accent: rgba(240, 199, 94, .62);
+      --primary: #d4af37;
+      --primary-hover: #f0c75e;
+      --primary-glow: rgba(212, 175, 55, .18);
+      --accent-cyan: #e7c45a;
+      --accent-green: #d8b44a;
+      --accent-amber: #f0c75e;
+      --text: #f7f3e8;
+      --text-muted: #b8b09c;
+      --text-dim: #8b826b;
+    }
+    body {
+      background-color: var(--bg);
+      background-image: radial-gradient(ellipse at 50% -10%, rgba(212,175,55,.13), transparent 44%),
+        radial-gradient(ellipse at 100% 38%, rgba(240,199,94,.06), transparent 36%),
+        linear-gradient(180deg, #050505 0%, #0b0a07 60%, #030303 100%);
+    }
+    header { background: rgba(5,5,5,.9); border-bottom-color: rgba(212,175,55,.2); }
+    .brand-logo {
+      background: linear-gradient(145deg,#2b230b,#090806);
+      border-color: rgba(240,199,94,.65);
+      box-shadow: 0 0 26px rgba(212,175,55,.14);
+    }
+    .btn-primary {
+      color: #100d04;
+      background: linear-gradient(135deg,#f5df91,#c69b24);
+      box-shadow: 0 8px 26px rgba(212,175,55,.17);
+    }
+    .btn-primary:hover { background: linear-gradient(135deg,#fff0b8,#e0b83f); }
+    .btn-outline { background: rgba(20,18,12,.7); border-color: rgba(212,175,55,.34); }
+    .btn-outline:hover { border-color: var(--primary); background: #1a160a; }
+    .btn-tg { background: rgba(212,175,55,.09); border-color: rgba(212,175,55,.42); color: #f0d477; }
+    .btn-tg:hover { background: rgba(212,175,55,.17); }
+    .badge-pill { border-color: rgba(212,175,55,.35); background: rgba(212,175,55,.08); color: #f0d477; }
+    .hero-title span { background: linear-gradient(90deg,#f6e6a7 0%,#d4af37 58%,#a77b12 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .console-wrapper { background: linear-gradient(150deg,rgba(22,20,14,.98),rgba(8,8,7,.98)); border-color: rgba(212,175,55,.28); }
+    .input-field,.search-input { background: rgba(5,5,5,.82); border-color: rgba(212,175,55,.23); }
+    .input-field:focus,.search-input:focus { outline-color: rgba(212,175,55,.22); border-color: var(--primary); }
+    .terminal-output { background: #050504; border-color: rgba(212,175,55,.2); color: #e8d48d; }
+    .pill-btn { background: rgba(20,18,12,.72); border-color: rgba(212,175,55,.18); }
+    .pill-btn.active { background: rgba(212,175,55,.15); color: #f5df91; border-color: rgba(240,199,94,.6); }
+    .tool-card { border-color: rgba(212,175,55,.16); background: linear-gradient(145deg,rgba(20,18,13,.94),rgba(9,9,8,.98)); }
+    .tool-card:hover,.tool-card.selected { border-color: rgba(240,199,94,.58); background: linear-gradient(145deg,rgba(43,34,12,.88),rgba(12,11,8,.98)); box-shadow: 0 14px 34px rgba(0,0,0,.28); }
+    .tool-emoji { background: rgba(212,175,55,.1); }
+    .feature-card { background: rgba(16,15,11,.82); border-color: rgba(212,175,55,.16); }
+    footer { background: #040404; }
+    a:focus-visible,button:focus-visible,input:focus-visible { outline-color: #f0c75e; }
+
+  </style>
 </head>
 <body>
 
@@ -663,7 +719,7 @@
       </nav>
 
       <div class="nav-actions">
-        <a href="https://t.me/coderpetroosint_bot" target="_blank" rel="noopener noreferrer" class="btn btn-tg">
+        <a href="https://t.me/nyktosren" target="_blank" rel="noopener noreferrer" class="btn btn-tg">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="22" y1="2" x2="11" y2="13"></line>
             <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
@@ -800,7 +856,7 @@
         <div class="feature-card">
           <div class="feature-icon">🤖</div>
           <h3 class="feature-title">Telegram Bot Integration</h3>
-          <p class="feature-desc">Access automated bots and dedicated 24/7 support via @coderpetroosint_bot for inquiries and custom queries.</p>
+          <p class="feature-desc">Access automated bots and dedicated 24/7 support via t.me/nyktosren for inquiries and custom queries.</p>
         </div>
       </div>
     </section>
@@ -842,7 +898,7 @@
         © 2026 REN OSINT. All rights reserved.
       </div>
       <div class="footer-links">
-        <a href="https://t.me/coderpetroosint_bot" target="_blank" rel="noopener noreferrer">Telegram Support</a>
+        <a href="https://t.me/nyktosren" target="_blank" rel="noopener noreferrer">Telegram Support</a>
         <a href="#console">Terminal</a>
         <a href="#catalog">Catalog</a>
       </div>
