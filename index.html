@@ -3,14 +3,30 @@
 
 <head>
   <meta charset="UTF-8" />
+  <!-- Normalize raw.githack preview paths to the React app's "/" route. -->
+  <script>
+    if (location.hostname === "raw.githack.com") {
+      const branchRoot = "/Ren-10-06/osnitren/ui-refresh/";
+      const isThisPreview = location.pathname === branchRoot ||
+        location.pathname === branchRoot + "index.html" ||
+        location.pathname === branchRoot.slice(0, -1) ||
+        location.pathname.endsWith("/index.html");
+      if (isThisPreview && location.pathname !== "/") {
+        const base = document.createElement("base");
+        base.href = location.origin + branchRoot;
+        document.head.appendChild(base);
+        history.replaceState(null, "", "/" + location.search + location.hash);
+      }
+    }
+  </script>
   <link rel="icon" type="image/svg+xml" href="./logo.svg" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <link rel="manifest" href="./manifest.webmanifest" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#010204" />
+  <meta name="theme-color" content="#111720" />
   <meta
     name="description"
-    content="CODER PETRO OSINT — professional OSINT lookup service. Browse a catalog of intelligence lookups for phone, email, vehicle, UPI, PAN and more, with clean copy-ready results."
+    content="REN OSINT — OSINT intelligence workspace. Browse a catalog of intelligence lookups for phone, email, vehicle, UPI, PAN and more, with clean copy-ready results."
   />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,12 +34,150 @@
     href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
     rel="stylesheet"
   />
-  <title>CODER PETRO OSINT — Professional OSINT Lookups</title>
+  <title>REN OSINT | Intelligence Workspace</title>
+  <!-- Safety-net branding replacement for stale/cached UI bundles. -->
+  <script>
+    (() => {
+      const replaceLegacyBranding = () => {
+        const walker = document.createTreeWalker(document.body || document.documentElement, NodeFilter.SHOW_TEXT);
+        const nodes = [];
+        while (walker.nextNode()) nodes.push(walker.currentNode);
+        for (const node of nodes) {
+          if (/CODER\\s+PETRO\\s+OSINT/i.test(node.nodeValue || "")) {
+            node.nodeValue = node.nodeValue.replace(/CODER\\s+PETRO\\s+OSINT/gi, "REN OSINT");
+          }
+        }
+        for (const el of document.querySelectorAll("[aria-label],[title],[alt]")) {
+          for (const attr of ["aria-label", "title", "alt"]) {
+            const value = el.getAttribute(attr);
+            if (value && /CODER\\s+PETRO\\s+OSINT/i.test(value)) el.setAttribute(attr, value.replace(/CODER\\s+PETRO\\s+OSINT/gi, "REN OSINT"));
+          }
+        }
+      };
+      new MutationObserver(replaceLegacyBranding).observe(document.documentElement, {childList:true, subtree:true, characterData:true});
+      document.addEventListener("DOMContentLoaded", replaceLegacyBranding);
+      setTimeout(replaceLegacyBranding, 0);
+    })();
+  </script>
   <script type="module" crossorigin src="./assets/index-B2Z1Uy-C.js"></script>
   <link rel="modulepreload" crossorigin href="./assets/react-vendor-BLzzXeNt.js">
   <link rel="modulepreload" crossorigin href="./assets/framer-motion-BhkHslXk.js">
   <link rel="modulepreload" crossorigin href="./assets/radix-ui-CwdkQCJm.js">
   <link rel="stylesheet" crossorigin href="./assets/index-Crc71vD4.css">
+
+  <style>
+    /* REN OSINT black-and-gold theme; keep the original React app and its lookup/result components. */
+    :root, .dark {
+      color-scheme: dark;
+      --background: #10151c !important;
+      --foreground: #f4f7fb !important;
+      --card: #1a222c !important;
+      --card-foreground: #f4f7fb !important;
+      --popover: #1a222c !important;
+      --popover-foreground: #f4f7fb !important;
+      --primary: #d2b77e !important;
+      --primary-foreground: #111720 !important;
+      --secondary: #202a35 !important;
+      --secondary-foreground: #f4f7fb !important;
+      --muted: #171f28 !important;
+      --muted-foreground: #c0cad5 !important;
+      --accent: #d2b77e !important;
+      --accent-foreground: #111720 !important;
+      --border: #394655 !important;
+      --input: #394655 !important;
+      --ring: #d2b77e !important;
+      --sidebar: #121923 !important;
+      --sidebar-foreground: #f4f7fb !important;
+      --sidebar-primary: #d2b77e !important;
+      --sidebar-primary-foreground: #111720 !important;
+      --sidebar-accent: #202a35 !important;
+      --sidebar-accent-foreground: #f4f7fb !important;
+      --sidebar-border: #394655 !important;
+      --sidebar-ring: #d2b77e !important;
+    }
+    html, body, #root { min-height: 100%; background: #10151c; }
+    body { color: #f4f7fb; --ren-gold: #d2b77e; }
+    ::selection { background: rgba(214,173,69,.32); color: #fff8df; }
+    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+      outline: 2px solid #d2b77e;
+      outline-offset: 2px;
+    }
+  
+    /* Premium charcoal / champagne / steel-blue treatment */
+    :root, .dark {
+      --accent: #a9c7e3 !important;
+      --accent-foreground: #080d12 !important;
+      --sidebar-accent: #18232e !important;
+      --sidebar-accent-foreground: #f4f7fb !important;
+    }
+    .text-gradient {
+      background-image: linear-gradient(110deg, #f4f7fb 0%, #d2b77e 48%, #a9c7e3 100%) !important;
+      -webkit-background-clip: text !important;
+      background-clip: text !important;
+      color: transparent !important;
+    }
+    a, button { transition: border-color .18s ease, background-color .18s ease, color .18s ease; }
+    button:hover, a[role="button"]:hover { filter: brightness(1.06); }
+
+    /* Bright metallic gold with a restrained moving glint. */
+    :root, .dark {
+      --primary: #f2c75c !important;
+      --primary-foreground: #171006 !important;
+      --accent: #f5cf68 !important;
+      --accent-foreground: #171006 !important;
+      --ring: #ffdf82 !important;
+      --sidebar-primary: #f2c75c !important;
+      --sidebar-primary-foreground: #171006 !important;
+      --sidebar-ring: #ffdf82 !important;
+      --background: #090b0f !important;
+      --card: #14171d !important;
+      --card-foreground: #fff9e8 !important;
+      --popover: #14171d !important;
+      --popover-foreground: #fff9e8 !important;
+      --secondary: #202127 !important;
+      --muted: #1b1d22 !important;
+      --border: #51432a !important;
+      --input: #51432a !important;
+    }
+    html, body, #root { background-color: #090b0f; }
+    body { --ren-gold: #f2c75c; }
+    .text-primary, [class*="text-amber-"], [class*="text-yellow-"] {
+      color: #f5cf68 !important;
+    }
+    .text-gradient {
+      background-image: linear-gradient(105deg, #fff8d9 0%, #f9df8b 18%, #d89c20 38%, #fff0a8 52%, #e9b83f 68%, #fff4bf 82%, #b87912 100%) !important;
+      background-size: 220% 100% !important;
+      animation: ren-gold-glint 5s linear infinite;
+      -webkit-text-fill-color: transparent !important;
+    }
+    .bg-primary, button.bg-primary, a.bg-primary, [class*="bg-amber-"] {
+      background-image: linear-gradient(110deg, #a86c0a 0%, #f0c34f 18%, #fff0a3 34%, #d99c20 52%, #ffe68a 70%, #b87912 100%) !important;
+      background-size: 220% 100% !important;
+      color: #171006 !important;
+      border-color: #f5d778 !important;
+      box-shadow: 0 0 0 1px rgba(255,220,112,.22), 0 5px 22px rgba(218,161,39,.16);
+      animation: ren-gold-glint 6s ease-in-out infinite;
+    }
+    [class*="border-primary"], a:focus-visible, button:focus-visible {
+      border-color: #f5cf68 !important;
+      outline-color: #ffdf82 !important;
+    }
+    @keyframes ren-gold-glint {
+      0% { background-position: 100% 50%; }
+      100% { background-position: -120% 50%; }
+    }
+    /* REN OSINT red-and-black theme: vivid crimson, ember highlights, black surfaces. */
+    :root, .dark { --primary:#ff2638 !important; --primary-foreground:#ffffff !important; --accent:#ff3448 !important; --accent-foreground:#ffffff !important; --ring:#ff5262 !important; --sidebar-primary:#ff2638 !important; --sidebar-primary-foreground:#ffffff !important; --sidebar-ring:#ff5262 !important; --background:#07080b !important; --foreground:#f5f5f7 !important; --card:#121318 !important; --card-foreground:#f5f5f7 !important; --popover:#121318 !important; --popover-foreground:#f5f5f7 !important; --secondary:#1d1d24 !important; --muted:#17171d !important; --muted-foreground:#b7b7c2 !important; --border:#49202a !important; --input:#49202a !important; --sidebar:#0b0b10 !important; --sidebar-accent:#211117 !important; }
+    html, body, #root { background-color:#07080b !important; }
+    body { --ren-gold:#ff2638; }
+    .text-primary, [class*="text-amber-"], [class*="text-yellow-"], [class*="text-gold"] { color:#ff3448 !important; -webkit-text-fill-color:#ff3448 !important; }
+    .text-gradient { background-image:linear-gradient(100deg,#fff0f2 0%,#ff5262 18%,#b10d24 35%,#ff2638 50%,#ff8b96 65%,#e20f2d 82%,#fff0f2 100%) !important; background-size:300% 100% !important; animation:ren-red-glint 3.2s linear infinite !important; -webkit-background-clip:text !important; background-clip:text !important; -webkit-text-fill-color:transparent !important; color:transparent !important; }
+    .bg-primary, button.bg-primary, a.bg-primary, [class*="bg-amber-"], [class*="bg-yellow-"] { background-color:#e3132b !important; background-image:linear-gradient(105deg,#8c0718 0%,#d70d27 16%,#ff7a87 30%,#f01832 45%,#ffadb5 51%,#df102b 66%,#850b1b 82%,#ff3a4d 100%) !important; background-size:300% 100% !important; color:#ffffff !important; -webkit-text-fill-color:#ffffff !important; border:1px solid #ff5968 !important; box-shadow:0 0 0 1px rgba(255,38,56,.3),0 0 18px rgba(255,20,48,.25),inset 0 1px 0 rgba(255,240,242,.28) !important; animation:ren-red-glint 3.8s linear infinite !important; }
+    [class*="border-primary"], [class*="border-amber-"] { border-color:#d9233b !important; }
+    @keyframes ren-red-glint { 0% { background-position:100% 50%; } 100% { background-position:-200% 50%; } }
+    @media (prefers-reduced-motion: reduce) { .text-gradient, .bg-primary, button.bg-primary, a.bg-primary, [class*="bg-amber-"], [class*="bg-yellow-"] { animation:none !important; } }
+  </style>
+
 </head>
 
 
