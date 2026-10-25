@@ -722,6 +722,43 @@
     footer { background: #040404; }
     a:focus-visible,button:focus-visible,input:focus-visible { outline-color: #f0c75e; }
 
+  
+    /* REN OSINT black-and-gold theme overrides — preserves the original full-page layout */
+    :root {
+      --primary: #d6ad45;
+      --primary-hover: #b88a24;
+      --primary-glow: rgba(214, 173, 69, 0.18);
+      --accent-cyan: #e3bd58;
+      --accent-green: #d6ad45;
+      --accent-amber: #f0cf78;
+      --border-accent: #57451f;
+    }
+    body {
+      background-image:
+        radial-gradient(circle at 50% 0%, rgba(214, 173, 69, 0.09), transparent 40%),
+        radial-gradient(circle at 100% 50%, rgba(184, 138, 36, 0.05), transparent 40%);
+    }
+    .brand-logo {
+      background: linear-gradient(135deg, #211a09 0%, #050403 100%);
+      border-color: rgba(214, 173, 69, 0.65);
+      box-shadow: 0 0 16px rgba(214, 173, 69, 0.18);
+    }
+    .btn-tg {
+      background: rgba(214, 173, 69, 0.08);
+      border-color: rgba(214, 173, 69, 0.35);
+      color: var(--accent-cyan);
+    }
+    .btn-tg:hover { background: rgba(214, 173, 69, 0.16); }
+    .terminal-output { color: #e3bd58; }
+    .badge-pill {
+      background: rgba(214, 173, 69, 0.08);
+      border-color: rgba(214, 173, 69, 0.28);
+    }
+    .badge-dot {
+      background-color: var(--accent-green);
+      box-shadow: 0 0 8px rgba(214, 173, 69, 0.7);
+    }
+
   </style>
 </head>
 <body>
