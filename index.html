@@ -3,6 +3,16 @@
 
 <head>
   <meta charset="UTF-8" />
+  <!-- Normalize direct preview entry to the React home route while keeping assets rooted in this branch. -->
+  <script>
+    if (location.hostname === "raw.githack.com" && /\\/index\\.html$/.test(location.pathname)) {
+      const branchRoot = "/Ren-10-06/osnitren/ui-refresh/";
+      const base = document.createElement("base");
+      base.href = location.origin + branchRoot;
+      document.head.appendChild(base);
+      history.replaceState(null, "", "/");
+    }
+  </script>
   <link rel="icon" type="image/svg+xml" href="./logo.svg" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <link rel="manifest" href="./manifest.webmanifest" />
