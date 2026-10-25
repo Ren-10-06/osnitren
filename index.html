@@ -118,6 +118,59 @@
     }
     a, button { transition: border-color .18s ease, background-color .18s ease, color .18s ease; }
     button:hover, a[role="button"]:hover { filter: brightness(1.06); }
+
+    /* Bright metallic gold with a restrained moving glint. */
+    :root, .dark {
+      --primary: #f2c75c !important;
+      --primary-foreground: #171006 !important;
+      --accent: #f5cf68 !important;
+      --accent-foreground: #171006 !important;
+      --ring: #ffdf82 !important;
+      --sidebar-primary: #f2c75c !important;
+      --sidebar-primary-foreground: #171006 !important;
+      --sidebar-ring: #ffdf82 !important;
+      --background: #090b0f !important;
+      --card: #14171d !important;
+      --card-foreground: #fff9e8 !important;
+      --popover: #14171d !important;
+      --popover-foreground: #fff9e8 !important;
+      --secondary: #202127 !important;
+      --muted: #1b1d22 !important;
+      --border: #51432a !important;
+      --input: #51432a !important;
+    }
+    html, body, #root { background-color: #090b0f; }
+    body { --ren-gold: #f2c75c; }
+    .text-primary, [class*="text-amber-"], [class*="text-yellow-"] {
+      color: #f5cf68 !important;
+    }
+    .text-gradient {
+      background-image: linear-gradient(105deg, #fff8d9 0%, #f9df8b 18%, #d89c20 38%, #fff0a8 52%, #e9b83f 68%, #fff4bf 82%, #b87912 100%) !important;
+      background-size: 220% 100% !important;
+      animation: ren-gold-glint 5s linear infinite;
+      -webkit-text-fill-color: transparent !important;
+    }
+    .bg-primary, button.bg-primary, a.bg-primary, [class*="bg-amber-"] {
+      background-image: linear-gradient(110deg, #a86c0a 0%, #f0c34f 18%, #fff0a3 34%, #d99c20 52%, #ffe68a 70%, #b87912 100%) !important;
+      background-size: 220% 100% !important;
+      color: #171006 !important;
+      border-color: #f5d778 !important;
+      box-shadow: 0 0 0 1px rgba(255,220,112,.22), 0 5px 22px rgba(218,161,39,.16);
+      animation: ren-gold-glint 6s ease-in-out infinite;
+    }
+    [class*="border-primary"], a:focus-visible, button:focus-visible {
+      border-color: #f5cf68 !important;
+      outline-color: #ffdf82 !important;
+    }
+    @keyframes ren-gold-glint {
+      0% { background-position: 100% 50%; }
+      100% { background-position: -120% 50%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .text-gradient, .bg-primary, button.bg-primary, a.bg-primary, [class*="bg-amber-"] {
+        animation: none !important;
+      }
+    }
   </style>
 
 </head>
