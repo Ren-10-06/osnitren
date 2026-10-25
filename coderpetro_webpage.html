@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CODER PETRO OSINT — Professional OSINT Lookups</title>
-  <meta name="description" content="Professional OSINT lookup service — phone, email, vehicle, UPI, PAN and more.">
+  <title>CODER PETRO OSINT — Open Web Intelligence</title>
+  <meta name="description" content="A mobile-first workspace for public web research, domain diagnostics, network information and public profiles.">
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -560,7 +560,72 @@
         flex-direction: column;
       }
     }
-  </style>
+  
+    .responsible-note { margin: 14px 0 0; padding: 12px 15px; border: 1px solid rgba(110,231,183,.18); border-radius: 12px; color: #a7c8c5; background: rgba(16,185,129,.045); font-size: .84rem; line-height: 1.6; }
+    :root { --bg:#070b14; --card-bg:rgba(15,23,42,.78); --card-hover:rgba(22,35,59,.96); --surface:#111c2f; --border:rgba(148,163,184,.16); --border-accent:rgba(103,232,249,.42); --primary:#67e8f9; --primary-hover:#22d3ee; --primary-glow:rgba(34,211,238,.16); --accent-cyan:#67e8f9; --accent-green:#6ee7b7; --accent-amber:#fbbf24; --text:#f1f5f9; --text-muted:#a7b4c8; --text-dim:#718198; --radius:16px; }
+    body { background-image:radial-gradient(ellipse at 50% -10%,rgba(34,211,238,.14),transparent 44%),radial-gradient(ellipse at 100% 38%,rgba(99,102,241,.12),transparent 36%),linear-gradient(180deg,#070b14 0%,#080d18 60%,#050810 100%); background-attachment:fixed; }
+    header { background:rgba(7,11,20,.82); border-bottom-color:rgba(148,163,184,.14); }
+    .brand-logo { border-radius:13px; background:linear-gradient(145deg,#123145,#101629); border-color:rgba(103,232,249,.5); box-shadow:0 0 26px rgba(34,211,238,.13); }
+    .btn { border-radius:12px; font-weight:700; transition:transform .18s ease,box-shadow .18s ease,background .18s ease; }
+    .btn:hover { transform:translateY(-1px); }
+    .btn-primary { color:#06121b; background:linear-gradient(135deg,#a5f3fc,#22d3ee); box-shadow:0 8px 26px rgba(34,211,238,.16); }
+    .btn-primary:hover { background:linear-gradient(135deg,#cffafe,#67e8f9); }
+    .btn-outline { background:rgba(15,23,42,.55); border-color:rgba(148,163,184,.25); }
+    .hero { padding:clamp(58px,9vw,100px) 0 58px; }
+    .badge-pill { border-color:rgba(103,232,249,.26); background:rgba(34,211,238,.07); color:#b8f7ff; border-radius:999px; padding:8px 14px; }
+    .hero-title { max-width:900px; font-size:clamp(2.7rem,7vw,5.8rem); line-height:.98; letter-spacing:-1.8px; }
+    .hero-title span { background:linear-gradient(90deg,#67e8f9 0%,#a5b4fc 65%,#c4b5fd 100%); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .hero-desc { max-width:690px; font-size:clamp(1rem,2.1vw,1.12rem); line-height:1.8; }
+    .console-wrapper { background:linear-gradient(150deg,rgba(17,28,47,.95),rgba(8,14,25,.95)); border:1px solid rgba(103,232,249,.22); border-radius:22px; padding:clamp(16px,3vw,28px); box-shadow:0 24px 90px rgba(0,0,0,.28),inset 0 1px rgba(255,255,255,.03); }
+    .console-topbar { gap:14px; flex-wrap:wrap; }
+    .input-bar { gap:10px; }
+    .input-field,.search-input { min-height:48px; border-radius:12px; background:rgba(3,8,16,.7); border-color:rgba(148,163,184,.22); }
+    .input-field:focus,.search-input:focus { outline:2px solid rgba(103,232,249,.2); border-color:var(--primary); }
+    .terminal-output { min-height:160px; border-radius:14px; border:1px solid rgba(148,163,184,.12); background:#050912; color:#b8f7d5; overflow-wrap:anywhere; white-space:pre-wrap; }
+    #catalog { padding-top:78px; }
+    .section-head { gap:18px; align-items:center; }
+    .category-pills { gap:9px; margin:22px 0; }
+    .pill-btn { border-radius:999px; padding:9px 15px; background:rgba(15,23,42,.6); border-color:rgba(148,163,184,.17); }
+    .pill-btn.active { background:rgba(34,211,238,.13); color:#a5f3fc; border-color:rgba(103,232,249,.45); }
+    .tools-grid { grid-template-columns:repeat(auto-fit,minmax(min(100%,235px),1fr)); gap:14px; }
+    .tool-card { min-width:0; border-radius:17px; border:1px solid rgba(148,163,184,.14); background:linear-gradient(145deg,rgba(15,23,42,.82),rgba(10,16,29,.92)); padding:20px; transition:transform .2s ease,border-color .2s ease,background .2s ease,box-shadow .2s ease; }
+    .tool-card:hover,.tool-card.selected { transform:translateY(-3px); border-color:rgba(103,232,249,.48); background:linear-gradient(145deg,rgba(17,42,59,.92),rgba(10,16,29,.96)); box-shadow:0 14px 34px rgba(0,0,0,.18); }
+    .tool-emoji { width:42px; height:42px; display:grid; place-items:center; border-radius:12px; background:rgba(103,232,249,.09); font-size:1.35rem; }
+    .tool-name { margin-top:14px; }
+    .tool-hint { line-height:1.65; }
+    .tool-example { overflow-wrap:anywhere; }
+    .features-grid { gap:14px; }
+    .feature-card { border-radius:17px; background:rgba(15,23,42,.6); border-color:rgba(148,163,184,.13); }
+    footer { border-top-color:rgba(148,163,184,.14); }
+    a:focus-visible,button:focus-visible,input:focus-visible { outline:2px solid #67e8f9; outline-offset:3px; }
+    @media(max-width:768px) {
+      .container { padding-left:16px; padding-right:16px; }
+      .nav-inner { height:auto; min-height:64px; gap:12px; }
+      .brand { font-size:.98rem; gap:9px; }
+      .brand-logo { width:34px; height:34px; flex:0 0 34px; }
+      .nav-actions .btn { padding:8px 10px; font-size:.78rem; }
+      .hero { padding-top:52px; }
+      .hero-title { letter-spacing:-1px; }
+      .hero-buttons { flex-wrap:wrap; }
+      .hero-buttons .btn { flex:1 1 160px; }
+      .console-wrapper { margin-left:0; margin-right:0; }
+      .console-topbar { align-items:flex-start; }
+      .input-bar { flex-direction:column; }
+      .input-bar .btn { width:100%; }
+      .section-head { align-items:stretch; flex-direction:column; }
+      .search-input { width:100%; }
+      .tools-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+      .tool-card { padding:14px; }
+      .tool-hint { font-size:.84rem; }
+      .tool-example { font-size:.72rem; }
+    }
+    @media(max-width:390px) {
+      .tools-grid { grid-template-columns:1fr; }
+      .nav-actions .btn { max-width:116px; }
+      .hero-title { font-size:2.6rem; }
+    }
+    @media(prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:.01ms!important; transition-duration:.01ms!important; scroll-behavior:auto!important; } }
+</style>
 </head>
 <body>
 
@@ -583,7 +648,7 @@
 
       <nav class="nav-links">
         <a href="#console" class="nav-link">Live Console</a>
-        <a href="#catalog" class="nav-link">Catalog (30 Tools)</a>
+        <a href="#catalog" class="nav-link">Tool Catalog</a>
         <a href="#why-us" class="nav-link">Why Choose Us</a>
         <a href="#how-it-works" class="nav-link">How It Works</a>
       </nav>
@@ -608,16 +673,16 @@
     <section class="hero">
       <div class="badge-pill">
         <span class="badge-dot"></span>
-        Professional OSINT Catalog & Live Workspace
+        OPEN WEB RESEARCH WORKSPACE
       </div>
 
       <h1 class="hero-title">
-        Professional OSINT Lookups<br>
-        <span>In One Clean Workspace.</span>
+        Open-web intelligence<br>
+        <span>Clear. Fast. Responsible.</span>
       </h1>
 
       <p class="hero-desc">
-        Curated catalog of intelligence lookups — phone numbers, emails, vehicles, UPI, PAN, Aadhaar family, leak databases, and domain records — with structured, copy-ready results.
+        A streamlined workspace for public profiles, domain diagnostics, DNS, IP information and everyday research tools. Use only information you are authorised to access.
       </p>
 
       <div class="hero-buttons">
@@ -629,7 +694,7 @@
           Try Live Lookup
         </a>
         <a href="#catalog" class="btn btn-outline" style="padding: 12px 24px; font-size: 1rem;">
-          Browse 30 Lookups
+          Explore Tools
         </a>
       </div>
     </section>
@@ -668,7 +733,7 @@
         </button>
       </div>
 
-      <div id="terminalOutput" class="terminal-output">Ready. Select any tool below and click "Run Lookup".</div>
+      <div id="terminalOutput" class="terminal-output">Ready. Choose a public-data tool and enter a query you are authorised to use.</div>
     </section>
 
     <!-- ==========================================================================
@@ -677,7 +742,7 @@
          ========================================================================== -->
     <section id="catalog">
       <div class="section-head">
-        <h2 class="section-title">Lookup Catalog</h2>
+        <h2 class="section-title">Research Toolkit</h2>
         <input 
           type="text" 
           id="catalogSearch" 
@@ -688,14 +753,10 @@
 
       <!-- Category Filter Buttons -->
       <div class="category-pills" id="categoryPills">
-        <button class="pill-btn active" data-cat="all">All (30)</button>
-        <button class="pill-btn" data-cat="contacts">Contact & Phone</button>
-        <button class="pill-btn" data-cat="social">Social & Media</button>
-        <button class="pill-btn" data-cat="identity">Identity & Documents</button>
-        <button class="pill-btn" data-cat="finance">Finance</button>
-        <button class="pill-btn" data-cat="vehicle">Vehicle</button>
-        <button class="pill-btn" data-cat="location">Location & Network</button>
-        <button class="pill-btn" data-cat="web">Web & Device</button>
+        <button class="pill-btn active" data-cat="all">All tools</button>
+        <button class="pill-btn" data-cat="social">Public profiles</button>
+        <button class="pill-btn" data-cat="location">Network &amp; location</button>
+        <button class="pill-btn" data-cat="web">Web &amp; domains</button>
       </div>
 
       <!-- Tools Grid -->
@@ -703,6 +764,8 @@
         <!-- Rendered via JavaScript from the catalog dataset below -->
       </div>
     </section>
+
+    <div class="responsible-note" role="note">Use responsibly: this workspace is intended for public information and authorised research. Do not submit private identifiers or attempt to retrieve another person’s confidential records.</div>
 
     <!-- ==========================================================================
          5. WHY CHOOSE US
@@ -784,49 +847,16 @@
     // 1. TOOL CATALOG DATASET (All 30 tools reconstructed from REA)
     // -------------------------------------------------------------
     const TOOLS = [
-      // Contact & Phone
-      { cat: 'contacts', key: 'tg2num', emoji: '📱', name: 'TG → Num', hint: 'Telegram phone from user ID', example: '123456789' },
-      { cat: 'contacts', key: 'tg_info', emoji: '💬', name: 'TG Info', hint: 'Telegram normal user info', example: '123456789' },
-      { cat: 'contacts', key: 'number', emoji: '📞', name: 'Phone Lookup', hint: 'Owner & carrier info from number', example: '9876543210' },
-      { cat: 'contacts', key: 'truecaller', emoji: '📲', name: 'Truecaller', hint: 'Name, location & SIM details', example: '9876543210' },
-      { cat: 'contacts', key: 'num2name', emoji: '👤', name: 'Number → Name', hint: 'Name linked to a number', example: '9876543210' },
-
-      // Social & Media
-      { cat: 'social', key: 'ffuid', emoji: '🎮', name: 'Free Fire UID', hint: 'Free Fire account details by UID', example: '11111111' },
-      { cat: 'social', key: 'insta', emoji: '📸', name: 'Instagram', hint: 'Profile, followers & bio', example: 'instagram' },
-      { cat: 'social', key: 'youtube', emoji: '🎬', name: 'YouTube', hint: 'Channel stats & details', example: 'mrbeast' },
-      { cat: 'social', key: 'snap', emoji: '👻', name: 'Snap Info', hint: 'Snapchat profile details', example: 'john_zoe' },
-
-      // Identity & Documents
-      { cat: 'identity', key: 'pan', emoji: '🪪', name: 'PAN Info', hint: 'PAN card holder details', example: 'AAYFK4129N' },
-      { cat: 'identity', key: 'aadhar_family', emoji: '👨‍👩‍👧‍👦', name: 'Aadhaar → Family', hint: 'Family members linked to Aadhaar', example: '211124564897' },
-      { cat: 'identity', key: 'ration', emoji: '🧾', name: 'Ration Card', hint: 'Ration card & member details', example: '24123456789' },
-      { cat: 'identity', key: 'voter', emoji: '🗳️', name: 'Voter ID', hint: 'Voter (EPIC) record lookup', example: 'ABC1234567' },
-      { cat: 'identity', key: 'lpg', emoji: '⛽', name: 'LPG Gas Info', hint: 'LPG consumer & connection details', example: '7065202121' },
-      { cat: 'identity', key: 'email_leak', emoji: '🔓', name: 'Email Leak', hint: 'Breach records for an email', example: 'user@gmail.com' },
-      { cat: 'identity', key: 'leakinfo', emoji: '🔍', name: 'Leak Info', hint: 'Worldwide breach records', example: '9876543210' },
-      { cat: 'identity', key: 'hightech', emoji: '🧠', name: 'HiTech Data', hint: 'Deep phone OSINT records', example: '9876543210' },
-
-      // Finance
-      { cat: 'finance', key: 'upi', emoji: '🔗', name: 'UPI ID', hint: 'Validate a UPI ID', example: 'name@okaxis' },
-      { cat: 'finance', key: 'num2upi', emoji: '💸', name: 'Num → UPI', hint: 'UPI IDs linked to phone number', example: '9876543210' },
-
-      // Vehicle
-      { cat: 'vehicle', key: 'vehicle', emoji: '🚗', name: 'Vehicle RC', hint: 'Registration, owner & specs', example: 'UP70EC6873' },
-      { cat: 'vehicle', key: 'challan', emoji: '🚔', name: 'Challan', hint: 'Pending fines for a plate', example: 'UP70EC6873' },
-      { cat: 'vehicle', key: 'veh_addr', emoji: '🏠', name: 'Vehicle Address', hint: 'Owner address for a plate', example: 'UP85BQ0130' },
-      { cat: 'vehicle', key: 'veh_owner', emoji: '🪪', name: 'Vehicle Owner', hint: 'Owner name & registration details', example: 'UP70EC6873' },
-
-      // Location & Network
-      { cat: 'location', key: 'pincode', emoji: '📍', name: 'Pincode', hint: 'Post office & area details', example: '800001' },
-      { cat: 'location', key: 'ip', emoji: '🌐', name: 'IP Address', hint: 'Geo & network info for an IP', example: '8.8.8.8' },
-
-      // Web & Device
-      { cat: 'web', key: 'whois', emoji: '🔎', name: 'WHOIS', hint: 'Domain registration & owner', example: 'google.com' },
-      { cat: 'web', key: 'ssl', emoji: '🔒', name: 'SSL Cert', hint: 'Certificate issuer & expiry', example: 'google.com' },
-      { cat: 'web', key: 'dns', emoji: '📡', name: 'DNS Records', hint: 'A, AAAA, MX, NS & TXT records', example: 'google.com' },
-      { cat: 'web', key: 'weather', emoji: '🌦️', name: 'Weather', hint: 'Current weather for any city', example: 'Delhi' },
-      { cat: 'web', key: 'imei', emoji: '📱', name: 'IMEI Check', hint: 'Validity, TAC & device model', example: '356938035643809' }
+      { cat: 'social', key: 'ffuid', emoji: '🎮', name: 'Free Fire Profile', hint: 'Public game profile details by UID', example: '11111111' },
+      { cat: 'social', key: 'insta', emoji: '📸', name: 'Instagram Profile', hint: 'Public profile information', example: 'instagram' },
+      { cat: 'social', key: 'youtube', emoji: '🎬', name: 'YouTube Channel', hint: 'Public channel statistics', example: 'mrbeast' },
+      { cat: 'social', key: 'snap', emoji: '👻', name: 'Snap Profile', hint: 'Public profile information', example: 'public_username' },
+      { cat: 'location', key: 'pincode', emoji: '📍', name: 'Postal Code', hint: 'Post office and area details', example: '620002' },
+      { cat: 'location', key: 'ip', emoji: '🌐', name: 'IP Information', hint: 'Network and approximate IP geolocation', example: '8.8.8.8' },
+      { cat: 'web', key: 'whois', emoji: '🔎', name: 'Domain WHOIS', hint: 'Public domain registration records', example: 'example.com' },
+      { cat: 'web', key: 'ssl', emoji: '🔒', name: 'SSL Certificate', hint: 'Certificate issuer and expiry', example: 'example.com' },
+      { cat: 'web', key: 'dns', emoji: '📡', name: 'DNS Records', hint: 'Public A, AAAA, MX, NS and TXT records', example: 'example.com' },
+      { cat: 'web', key: 'weather', emoji: '🌦️', name: 'Weather', hint: 'Current weather for a city', example: 'Trichy' }
     ];
 
     // Backend Convex Endpoint (can be modified if you have your own backend)
@@ -868,7 +898,10 @@
       toolsGrid.innerHTML = '';
       
       if (filtered.length === 0) {
-        toolsGrid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; color: var(--text-dim); padding: 40px;">No lookup tools match "${searchTerm}".</div>`;
+        const empty = document.createElement("div");
+        empty.style.cssText = "grid-column:1/-1;text-align:center;color:var(--text-dim);padding:40px";
+        empty.textContent = `No tools match "${searchTerm}".`;
+        toolsGrid.appendChild(empty);
         return;
       }
 
@@ -975,19 +1008,8 @@
           }, null, 2);
         }
       } catch (err) {
-        // Fallback for CORS or offline testing
-        terminalOutput.textContent = `[!] Network/CORS Notice: Direct browser query was blocked by CORS or network timeout (${err.message}).\n\nSample simulated payload:\n` + JSON.stringify({
-          status: "simulated_success",
-          tool: selectedTool.key,
-          query: query,
-          example_output: {
-            identifier: query,
-            category: selectedTool.cat,
-            timestamp: new Date().toISOString(),
-            status: "active",
-            note: "Edit CONVEX_URL in this HTML file to point to your proxy or backend."
-          }
-        }, null, 2);
+        // Never present fabricated sample data as a real lookup result.
+        terminalOutput.textContent = JSON.stringify({ status: "error", tool: selectedTool.key, error: "The lookup service could not be reached. Check your connection and try again." }, null, 2);
       } finally {
         runLookupBtn.disabled = false;
         runLookupBtn.textContent = 'Run Lookup';
