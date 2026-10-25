@@ -17,10 +17,10 @@
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <link rel="manifest" href="./manifest.webmanifest" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#080704" />
+  <meta name="theme-color" content="#0a0c10" />
   <meta
     name="description"
-    content="REN OSINT — professional OSINT lookup service. Browse a catalog of intelligence lookups for phone, email, vehicle, UPI, PAN and more, with clean copy-ready results."
+    content="REN OSINT — OSINT intelligence workspace. Browse a catalog of intelligence lookups for phone, email, vehicle, UPI, PAN and more, with clean copy-ready results."
   />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -28,7 +28,7 @@
     href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
     rel="stylesheet"
   />
-  <title>REN OSINT — Professional OSINT Lookups</title>
+  <title>REN OSINT | Intelligence Workspace</title>
   <script type="module" crossorigin src="./assets/index-B2Z1Uy-C.js"></script>
   <link rel="modulepreload" crossorigin href="./assets/react-vendor-BLzzXeNt.js">
   <link rel="modulepreload" crossorigin href="./assets/framer-motion-BhkHslXk.js">
@@ -39,39 +39,55 @@
     /* REN OSINT black-and-gold theme; keep the original React app and its lookup/result components. */
     :root, .dark {
       color-scheme: dark;
-      --background: #050504 !important;
-      --foreground: #f8f3e5 !important;
-      --card: #0d0c09 !important;
-      --card-foreground: #f8f3e5 !important;
-      --popover: #100e09 !important;
-      --popover-foreground: #f8f3e5 !important;
-      --primary: #d6ad45 !important;
-      --primary-foreground: #080704 !important;
-      --secondary: #17140b !important;
-      --secondary-foreground: #f8f3e5 !important;
-      --muted: #15130d !important;
-      --muted-foreground: #b8ad91 !important;
-      --accent: #d6ad45 !important;
-      --accent-foreground: #080704 !important;
-      --border: #3b3018 !important;
-      --input: #3b3018 !important;
-      --ring: #d6ad45 !important;
-      --sidebar: #0a0906 !important;
-      --sidebar-foreground: #f8f3e5 !important;
-      --sidebar-primary: #d6ad45 !important;
-      --sidebar-primary-foreground: #080704 !important;
-      --sidebar-accent: #17140b !important;
-      --sidebar-accent-foreground: #f8f3e5 !important;
-      --sidebar-border: #3b3018 !important;
-      --sidebar-ring: #d6ad45 !important;
+      --background: #090b0f !important;
+      --foreground: #e8edf3 !important;
+      --card: #11161d !important;
+      --card-foreground: #e8edf3 !important;
+      --popover: #11161d !important;
+      --popover-foreground: #e8edf3 !important;
+      --primary: #b7a07a !important;
+      --primary-foreground: #0a0c10 !important;
+      --secondary: #171c23 !important;
+      --secondary-foreground: #e8edf3 !important;
+      --muted: #12171d !important;
+      --muted-foreground: #9ba6b2 !important;
+      --accent: #b7a07a !important;
+      --accent-foreground: #0a0c10 !important;
+      --border: #2c343e !important;
+      --input: #2c343e !important;
+      --ring: #b7a07a !important;
+      --sidebar: #0b0f14 !important;
+      --sidebar-foreground: #e8edf3 !important;
+      --sidebar-primary: #b7a07a !important;
+      --sidebar-primary-foreground: #0a0c10 !important;
+      --sidebar-accent: #171c23 !important;
+      --sidebar-accent-foreground: #e8edf3 !important;
+      --sidebar-border: #2c343e !important;
+      --sidebar-ring: #b7a07a !important;
     }
-    html, body, #root { min-height: 100%; background: #050504; }
-    body { color: #f8f3e5; --ren-gold: #d6ad45; }
+    html, body, #root { min-height: 100%; background: #090b0f; }
+    body { color: #e8edf3; --ren-gold: #b7a07a; }
     ::selection { background: rgba(214,173,69,.32); color: #fff8df; }
     a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
-      outline: 2px solid #d6ad45;
+      outline: 2px solid #b7a07a;
       outline-offset: 2px;
     }
+  
+    /* Premium charcoal / champagne / steel-blue treatment */
+    :root, .dark {
+      --accent: #8da6bd !important;
+      --accent-foreground: #080d12 !important;
+      --sidebar-accent: #18232e !important;
+      --sidebar-accent-foreground: #e8edf3 !important;
+    }
+    .text-gradient {
+      background-image: linear-gradient(110deg, #e8edf3 0%, #b7a07a 48%, #8da6bd 100%) !important;
+      -webkit-background-clip: text !important;
+      background-clip: text !important;
+      color: transparent !important;
+    }
+    a, button { transition: border-color .18s ease, background-color .18s ease, color .18s ease; }
+    button:hover, a[role="button"]:hover { filter: brightness(1.06); }
   </style>
 
 </head>
