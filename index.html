@@ -166,13 +166,15 @@
       0% { background-position: 100% 50%; }
       100% { background-position: -120% 50%; }
     }
-    /* Vivid metallic gold override: high saturation, bright highlights, visible shimmer. */
-    :root, .dark { --primary:#f5b800 !important; --primary-foreground:#090909 !important; --accent:#ffcc22 !important; --accent-foreground:#090909 !important; --ring:#ffe066 !important; --sidebar-primary:#f5b800 !important; --border:#75520b !important; --input:#75520b !important; }
-    .text-primary, [class*="text-amber-"], [class*="text-yellow-"], [class*="text-gold"] { color:#ffcf24 !important; -webkit-text-fill-color:#ffcf24 !important; }
-    .text-gradient { background-image:linear-gradient(100deg,#fff9c4 0%,#ffdc35 14%,#b87900 27%,#fff176 40%,#f5b800 52%,#fff4a3 64%,#c88700 78%,#ffe65c 90%,#fff9c4 100%) !important; background-size:300% 100% !important; animation:ren-gold-glint 3.2s linear infinite !important; -webkit-background-clip:text !important; background-clip:text !important; -webkit-text-fill-color:transparent !important; color:transparent !important; }
-    .bg-primary, button.bg-primary, a.bg-primary, [class*="bg-amber-"], [class*="bg-yellow-"] { background-color:#e9aa00 !important; background-image:linear-gradient(105deg,#9a6200 0%,#e8a900 15%,#fff07a 29%,#ffc400 43%,#fff3a0 51%,#e5a100 66%,#a76b00 82%,#ffda35 100%) !important; background-size:300% 100% !important; color:#090909 !important; -webkit-text-fill-color:#090909 !important; border:1px solid #ffe477 !important; box-shadow:0 0 0 1px rgba(255,211,45,.35),0 0 18px rgba(255,190,0,.28),inset 0 1px 0 rgba(255,255,220,.5) !important; animation:ren-gold-glint 3.8s linear infinite !important; }
-    [class*="border-primary"], [class*="border-amber-"] { border-color:#e8b51e !important; }
-    @keyframes ren-gold-glint { 0% { background-position:100% 50%; } 100% { background-position:-200% 50%; } }
+    /* REN OSINT red-and-black theme: vivid crimson, ember highlights, black surfaces. */
+    :root, .dark { --primary:#ff2638 !important; --primary-foreground:#ffffff !important; --accent:#ff3448 !important; --accent-foreground:#ffffff !important; --ring:#ff5262 !important; --sidebar-primary:#ff2638 !important; --sidebar-primary-foreground:#ffffff !important; --sidebar-ring:#ff5262 !important; --background:#07080b !important; --foreground:#f5f5f7 !important; --card:#121318 !important; --card-foreground:#f5f5f7 !important; --popover:#121318 !important; --popover-foreground:#f5f5f7 !important; --secondary:#1d1d24 !important; --muted:#17171d !important; --muted-foreground:#b7b7c2 !important; --border:#49202a !important; --input:#49202a !important; --sidebar:#0b0b10 !important; --sidebar-accent:#211117 !important; }
+    html, body, #root { background-color:#07080b !important; }
+    body { --ren-gold:#ff2638; }
+    .text-primary, [class*="text-amber-"], [class*="text-yellow-"], [class*="text-gold"] { color:#ff3448 !important; -webkit-text-fill-color:#ff3448 !important; }
+    .text-gradient { background-image:linear-gradient(100deg,#fff0f2 0%,#ff5262 18%,#b10d24 35%,#ff2638 50%,#ff8b96 65%,#e20f2d 82%,#fff0f2 100%) !important; background-size:300% 100% !important; animation:ren-red-glint 3.2s linear infinite !important; -webkit-background-clip:text !important; background-clip:text !important; -webkit-text-fill-color:transparent !important; color:transparent !important; }
+    .bg-primary, button.bg-primary, a.bg-primary, [class*="bg-amber-"], [class*="bg-yellow-"] { background-color:#e3132b !important; background-image:linear-gradient(105deg,#8c0718 0%,#d70d27 16%,#ff7a87 30%,#f01832 45%,#ffadb5 51%,#df102b 66%,#850b1b 82%,#ff3a4d 100%) !important; background-size:300% 100% !important; color:#ffffff !important; -webkit-text-fill-color:#ffffff !important; border:1px solid #ff5968 !important; box-shadow:0 0 0 1px rgba(255,38,56,.3),0 0 18px rgba(255,20,48,.25),inset 0 1px 0 rgba(255,240,242,.28) !important; animation:ren-red-glint 3.8s linear infinite !important; }
+    [class*="border-primary"], [class*="border-amber-"] { border-color:#d9233b !important; }
+    @keyframes ren-red-glint { 0% { background-position:100% 50%; } 100% { background-position:-200% 50%; } }
     @media (prefers-reduced-motion: reduce) { .text-gradient, .bg-primary, button.bg-primary, a.bg-primary, [class*="bg-amber-"], [class*="bg-yellow-"] { animation:none !important; } }
   </style>
 
