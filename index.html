@@ -3,9 +3,9 @@
 
 <head>
   <meta charset="UTF-8" />
-  <!-- Normalize direct preview entry to the React home route while keeping assets rooted in this branch. -->
+  <!-- Normalize the preview URL to the app home route; keep asset URLs rooted at this branch. -->
   <script>
-    if (location.hostname === "raw.githack.com" && /\\/index\\.html$/.test(location.pathname)) {
+    if (location.hostname === "raw.githack.com" && /\/index\.html$/.test(location.pathname)) {
       const branchRoot = "/Ren-10-06/osnitren/ui-refresh/";
       const base = document.createElement("base");
       base.href = location.origin + branchRoot;
