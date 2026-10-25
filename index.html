@@ -166,11 +166,14 @@
       0% { background-position: 100% 50%; }
       100% { background-position: -120% 50%; }
     }
-    @media (prefers-reduced-motion: reduce) {
-      .text-gradient, .bg-primary, button.bg-primary, a.bg-primary, [class*="bg-amber-"] {
-        animation: none !important;
-      }
-    }
+    /* Vivid metallic gold override: high saturation, bright highlights, visible shimmer. */
+    :root, .dark { --primary:#f5b800 !important; --primary-foreground:#090909 !important; --accent:#ffcc22 !important; --accent-foreground:#090909 !important; --ring:#ffe066 !important; --sidebar-primary:#f5b800 !important; --border:#75520b !important; --input:#75520b !important; }
+    .text-primary, [class*="text-amber-"], [class*="text-yellow-"], [class*="text-gold"] { color:#ffcf24 !important; -webkit-text-fill-color:#ffcf24 !important; }
+    .text-gradient { background-image:linear-gradient(100deg,#fff9c4 0%,#ffdc35 14%,#b87900 27%,#fff176 40%,#f5b800 52%,#fff4a3 64%,#c88700 78%,#ffe65c 90%,#fff9c4 100%) !important; background-size:300% 100% !important; animation:ren-gold-glint 3.2s linear infinite !important; -webkit-background-clip:text !important; background-clip:text !important; -webkit-text-fill-color:transparent !important; color:transparent !important; }
+    .bg-primary, button.bg-primary, a.bg-primary, [class*="bg-amber-"], [class*="bg-yellow-"] { background-color:#e9aa00 !important; background-image:linear-gradient(105deg,#9a6200 0%,#e8a900 15%,#fff07a 29%,#ffc400 43%,#fff3a0 51%,#e5a100 66%,#a76b00 82%,#ffda35 100%) !important; background-size:300% 100% !important; color:#090909 !important; -webkit-text-fill-color:#090909 !important; border:1px solid #ffe477 !important; box-shadow:0 0 0 1px rgba(255,211,45,.35),0 0 18px rgba(255,190,0,.28),inset 0 1px 0 rgba(255,255,220,.5) !important; animation:ren-gold-glint 3.8s linear infinite !important; }
+    [class*="border-primary"], [class*="border-amber-"] { border-color:#e8b51e !important; }
+    @keyframes ren-gold-glint { 0% { background-position:100% 50%; } 100% { background-position:-200% 50%; } }
+    @media (prefers-reduced-motion: reduce) { .text-gradient, .bg-primary, button.bg-primary, a.bg-primary, [class*="bg-amber-"], [class*="bg-yellow-"] { animation:none !important; } }
   </style>
 
 </head>
