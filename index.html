@@ -26,12 +26,42 @@
   <link rel="stylesheet" crossorigin href="./assets/index-Crc71vD4.css">
 
   <style>
-    /* REN OSINT brand accents; preserve original React app, routes, and result renderer. */
-    :root { color-scheme: dark; }
-    html, body, #root { background-color: #050504; }
-    body { --ren-gold: #d6ad45; }
-    a, button { accent-color: #d6ad45; }
+    /* REN OSINT black-and-gold theme; keep the original React app and its lookup/result components. */
+    :root, .dark {
+      color-scheme: dark;
+      --background: #050504 !important;
+      --foreground: #f8f3e5 !important;
+      --card: #0d0c09 !important;
+      --card-foreground: #f8f3e5 !important;
+      --popover: #100e09 !important;
+      --popover-foreground: #f8f3e5 !important;
+      --primary: #d6ad45 !important;
+      --primary-foreground: #080704 !important;
+      --secondary: #17140b !important;
+      --secondary-foreground: #f8f3e5 !important;
+      --muted: #15130d !important;
+      --muted-foreground: #b8ad91 !important;
+      --accent: #d6ad45 !important;
+      --accent-foreground: #080704 !important;
+      --border: #3b3018 !important;
+      --input: #3b3018 !important;
+      --ring: #d6ad45 !important;
+      --sidebar: #0a0906 !important;
+      --sidebar-foreground: #f8f3e5 !important;
+      --sidebar-primary: #d6ad45 !important;
+      --sidebar-primary-foreground: #080704 !important;
+      --sidebar-accent: #17140b !important;
+      --sidebar-accent-foreground: #f8f3e5 !important;
+      --sidebar-border: #3b3018 !important;
+      --sidebar-ring: #d6ad45 !important;
+    }
+    html, body, #root { min-height: 100%; background: #050504; }
+    body { color: #f8f3e5; --ren-gold: #d6ad45; }
     ::selection { background: rgba(214,173,69,.32); color: #fff8df; }
+    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+      outline: 2px solid #d6ad45;
+      outline-offset: 2px;
+    }
   </style>
 
 </head>
